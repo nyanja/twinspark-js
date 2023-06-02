@@ -127,7 +127,11 @@
       },
       function(name, value, o) {
         o.el[name] = value;
-        setattr(o.el, name, value);
+        if (value === '') {
+          delattr(o.el, name, value);
+        } else {
+          setattr(o.el, name, value);
+        }
         return value;
       }
     ),
